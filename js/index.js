@@ -8,9 +8,9 @@ let speed = 10;
 let score = 0;
 let lastPaintTime = 0;
 let snakeArr = [
-    {x: 13 , y:15}
+    {x: 15 , y:13}
 ]
-food = {x:6 ,y: 7};
+food = {x:7 ,y: 6};
 
 //Game Functions
 function main(ctime){
@@ -45,7 +45,7 @@ function gameEngine(){
         // musicSound.pause();
         inputDir = {x:0 , y:0};
         alert("Game Over. Press any key to play again!");
-        snakeArr = [{x:13 , y:15}];
+        snakeArr = [{x:15 , y:13}];
         // musicSound.play();
         score = 0;
 
@@ -100,16 +100,6 @@ function gameEngine(){
     board.appendChild(foodElement);
 }
 
-
-
-
-
-
-
-
-
-
-
 //Main logic starts here
 let hiscore = localStorage.getItem("hiscore");
 if(hiscore === null)
@@ -118,7 +108,7 @@ if(hiscore === null)
     localStorage.setItem("hiscore",JSON.stringify(hiscoreval));
 }
 else{
-    hiscoreval = JSON.parse(hiscore)
+    hiscoreval = JSON.parse(hiscore);
     hiscoreBox.innerHTML = "Hi SCORE: " + hiscore;
 }
 window.requestAnimationFrame(main);
@@ -126,18 +116,6 @@ window.addEventListener('keydown', e =>{
     inputDir = {x:0 , y:1}  //start the game
     // moveSound.play();
     switch (e.key) {
-        case "ArrowUp":
-            console.log("ArrowUp");
-            inputDir.x = 0;
-            inputDir.y = -1;
-            break;
-
-        case "ArrowDown":
-            console.log("ArrowDown");
-            inputDir.x = 0;
-            inputDir.y = 1;
-            break;
-
         case "ArrowLeft":
             console.log("ArrowLeft");
             inputDir.x = -1;
@@ -149,7 +127,20 @@ window.addEventListener('keydown', e =>{
             inputDir.x = 1;
             inputDir.y = 0;
             break;
+            
+        case "ArrowUp":
+            console.log("ArrowUp");
+            inputDir.x = 0;
+            inputDir.y = -1;
+            break;
+
+        case "ArrowDown":
+            console.log("ArrowDown");
+            inputDir.x = 0;
+            inputDir.y = 1;
+            break;
+            
         default:
             break;
     }
-})
+});
