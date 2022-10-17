@@ -39,6 +39,7 @@
     height: 98vmin;
     border: 2px solid black;
     display: grid;
+    /*Here we have divided our box(in which our snake will move) into 18 parts and each part is of 1 unit*/
     grid-template-rows: repeat(18,1fr);
     grid-template-columns: repeat(18,1fr);
 }
